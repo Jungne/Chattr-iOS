@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		247FB8A4CE7B0008B8B150D2 /* Pods_Chattr.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 13263F188D273A9D216DD0FC /* Pods_Chattr.framework */; };
 		64582C11232BCAF200F6E4FE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64582C10232BCAF200F6E4FE /* AppDelegate.swift */; };
 		64582C13232BCAF200F6E4FE /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64582C12232BCAF200F6E4FE /* ViewController.swift */; };
 		64582C16232BCAF200F6E4FE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 64582C14232BCAF200F6E4FE /* Main.storyboard */; };
@@ -15,6 +16,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		13263F188D273A9D216DD0FC /* Pods_Chattr.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Chattr.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		64582C0D232BCAF200F6E4FE /* Chattr.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Chattr.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		64582C10232BCAF200F6E4FE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		64582C12232BCAF200F6E4FE /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -22,6 +24,8 @@
 		64582C17232BCAF400F6E4FE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		64582C1A232BCAF400F6E4FE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		64582C1C232BCAF400F6E4FE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B4513ABBB37426B718D88AD8 /* Pods-Chattr.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Chattr.debug.xcconfig"; path = "Target Support Files/Pods-Chattr/Pods-Chattr.debug.xcconfig"; sourceTree = "<group>"; };
+		C8DC6D7117401638391B6F90 /* Pods-Chattr.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Chattr.release.xcconfig"; path = "Target Support Files/Pods-Chattr/Pods-Chattr.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -29,6 +33,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				247FB8A4CE7B0008B8B150D2 /* Pods_Chattr.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -40,6 +45,8 @@
 			children = (
 				64582C0F232BCAF200F6E4FE /* Chattr */,
 				64582C0E232BCAF200F6E4FE /* Products */,
+				E9933C6B425BAFB06C605124 /* Pods */,
+				99D6E4920C8D6AA8B4819269 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -64,6 +71,24 @@
 			path = Chattr;
 			sourceTree = "<group>";
 		};
+		99D6E4920C8D6AA8B4819269 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				13263F188D273A9D216DD0FC /* Pods_Chattr.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		E9933C6B425BAFB06C605124 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				B4513ABBB37426B718D88AD8 /* Pods-Chattr.debug.xcconfig */,
+				C8DC6D7117401638391B6F90 /* Pods-Chattr.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -71,9 +96,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 64582C1F232BCAF400F6E4FE /* Build configuration list for PBXNativeTarget "Chattr" */;
 			buildPhases = (
+				7AE15FB08D558ECAC891E5A0 /* [CP] Check Pods Manifest.lock */,
 				64582C09232BCAF200F6E4FE /* Sources */,
 				64582C0A232BCAF200F6E4FE /* Frameworks */,
 				64582C0B232BCAF200F6E4FE /* Resources */,
+				7071FC793F9345D130AF6462 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -129,6 +156,48 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		7071FC793F9345D130AF6462 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Chattr/Pods-Chattr-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Chattr/Pods-Chattr-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Chattr/Pods-Chattr-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		7AE15FB08D558ECAC891E5A0 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Chattr-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		64582C09232BCAF200F6E4FE /* Sources */ = {
@@ -280,6 +349,7 @@
 		};
 		64582C20232BCAF400F6E4FE /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B4513ABBB37426B718D88AD8 /* Pods-Chattr.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -299,6 +369,7 @@
 		};
 		64582C21232BCAF400F6E4FE /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = C8DC6D7117401638391B6F90 /* Pods-Chattr.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
