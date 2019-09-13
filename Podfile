@@ -5,6 +5,7 @@ target 'Chattr' do
 
   pod 'Firebase/Auth'
   pod 'Firebase/Firestore'
+  pod 'FirebaseUI'
   pod 'FacebookCore'
   pod 'FacebookLogin'
 
