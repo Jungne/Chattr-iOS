@@ -16,7 +16,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
-
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         //Firebase initialization
@@ -68,12 +67,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
         return ApplicationDelegate.shared.application(app, open: url, options: options)
     }
-
 }
 
 extension AppDelegate : FUIAuthDelegate {
     func authUI(_ authUI: FUIAuth, didSignInWith authDataResult: AuthDataResult?, error: Error?) {
-        
+        //TODO Error handling.
     }
 }
 

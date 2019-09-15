@@ -7,41 +7,63 @@
 //
 
 import UIKit
+import Firebase
 import FirebaseUI
 
+//ChatRoom struct to represent chat rooms in tableview.
+struct ChatRoom {
+    var roomName : String
+    var lastMessage : String
+    var lastMessageTime : Double
+}
+
 class ChatRoomsTableViewController: UITableViewController {
+    //Variable declarations
+    var db : Firestore!
+    var chatRoomsArray = [ChatRoom]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
+        //Firestore reference.
+        db = Firestore.firestore()
+        
+        //Retrieves the chat rooms from database and saves them to an array for showing in tableview.
+        db.collection("chatrooms").getDocuments() { (querySnapshot, err) in
+            if let err = err {
+                print("Error getting documents: \(err)")
+            } else {
+                for document in querySnapshot!.documents {
+                    //TODO Add last message and timestamp.
+                    let newChatRoom = ChatRoom(roomName: document.data()["roomName"] as! String, lastMessage: "test", lastMessageTime: NSDate().timeIntervalSince1970)
+                    self.chatRoomsArray.append(newChatRoom)
+                }
+            }
+            //Reloads tableview to show data.
+            self.tableView.reloadData()
+        }
     }
-
+    
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 0
+        return 1
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        return 0
+        return chatRoomsArray.count
     }
-
-    /*
+    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
-
-        // Configure the cell...
+        let cell = tableView.dequeueReusableCell(withIdentifier: "ChatRoomCell", for: indexPath)
+        
+        //Uses the chat room data to create the cell.
+        let chatRoom = chatRoomsArray[indexPath.row]
+        cell.textLabel?.text = chatRoom.roomName
+        cell.detailTextLabel?.text = chatRoom.lastMessage
 
         return cell
     }
-    */
 
     /*
     // Override to support conditional editing of the table view.
@@ -87,6 +109,10 @@ class ChatRoomsTableViewController: UITableViewController {
         // Pass the selected object to the new view controller.
     }
     */
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        //TODO Open the chat room.
+    }
 
     @IBAction func onClick(_ sender: UIBarButtonItem) {
         do {
@@ -96,6 +122,6 @@ class ChatRoomsTableViewController: UITableViewController {
         } catch is NSError {
             print("Sign out failed")
         }
-        
     }
+    
 }
