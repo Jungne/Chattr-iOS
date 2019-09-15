@@ -14,6 +14,8 @@
 		64582C18232BCAF400F6E4FE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 64582C17232BCAF400F6E4FE /* Assets.xcassets */; };
 		64582C1B232BCAF400F6E4FE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 64582C19232BCAF400F6E4FE /* LaunchScreen.storyboard */; };
 		64582C23232BD0C000F6E4FE /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 64582C22232BD0C000F6E4FE /* GoogleService-Info.plist */; };
+		64582C28232BE1D600F6E4FE /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64582C27232BE1D600F6E4FE /* LoginViewController.swift */; };
+		64582C2A232EA1E800F6E4FE /* ChatRoomsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64582C29232EA1E800F6E4FE /* ChatRoomsTableViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +28,9 @@
 		64582C1A232BCAF400F6E4FE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		64582C1C232BCAF400F6E4FE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		64582C22232BD0C000F6E4FE /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		64582C24232BDF4F00F6E4FE /* Chattr.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Chattr.entitlements; sourceTree = "<group>"; };
+		64582C27232BE1D600F6E4FE /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		64582C29232EA1E800F6E4FE /* ChatRoomsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatRoomsTableViewController.swift; sourceTree = "<group>"; };
 		B4513ABBB37426B718D88AD8 /* Pods-Chattr.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Chattr.debug.xcconfig"; path = "Target Support Files/Pods-Chattr/Pods-Chattr.debug.xcconfig"; sourceTree = "<group>"; };
 		C8DC6D7117401638391B6F90 /* Pods-Chattr.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Chattr.release.xcconfig"; path = "Target Support Files/Pods-Chattr/Pods-Chattr.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -63,6 +68,7 @@
 		64582C0F232BCAF200F6E4FE /* Chattr */ = {
 			isa = PBXGroup;
 			children = (
+				64582C24232BDF4F00F6E4FE /* Chattr.entitlements */,
 				64582C10232BCAF200F6E4FE /* AppDelegate.swift */,
 				64582C12232BCAF200F6E4FE /* ViewController.swift */,
 				64582C14232BCAF200F6E4FE /* Main.storyboard */,
@@ -70,6 +76,8 @@
 				64582C19232BCAF400F6E4FE /* LaunchScreen.storyboard */,
 				64582C1C232BCAF400F6E4FE /* Info.plist */,
 				64582C22232BD0C000F6E4FE /* GoogleService-Info.plist */,
+				64582C27232BE1D600F6E4FE /* LoginViewController.swift */,
+				64582C29232EA1E800F6E4FE /* ChatRoomsTableViewController.swift */,
 			);
 			path = Chattr;
 			sourceTree = "<group>";
@@ -103,6 +111,7 @@
 				64582C0A232BCAF200F6E4FE /* Frameworks */,
 				64582C0B232BCAF200F6E4FE /* Resources */,
 				7071FC793F9345D130AF6462 /* [CP] Embed Pods Frameworks */,
+				29B1C9C378D605295573E67A /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -125,6 +134,11 @@
 				TargetAttributes = {
 					64582C0C232BCAF200F6E4FE = {
 						CreatedOnToolsVersion = 10.3;
+						SystemCapabilities = {
+							com.apple.Keychain = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -161,6 +175,23 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		29B1C9C378D605295573E67A /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Chattr/Pods-Chattr-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Chattr/Pods-Chattr-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Chattr/Pods-Chattr-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		7071FC793F9345D130AF6462 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -207,6 +238,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				64582C2A232EA1E800F6E4FE /* ChatRoomsTableViewController.swift in Sources */,
+				64582C28232BE1D600F6E4FE /* LoginViewController.swift in Sources */,
 				64582C13232BCAF200F6E4FE /* ViewController.swift in Sources */,
 				64582C11232BCAF200F6E4FE /* AppDelegate.swift in Sources */,
 			);
@@ -355,6 +388,7 @@
 			baseConfigurationReference = B4513ABBB37426B718D88AD8 /* Pods-Chattr.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = Chattr/Chattr.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = ZVP6SVPX5H;
 				INFOPLIST_FILE = Chattr/Info.plist;
@@ -375,6 +409,7 @@
 			baseConfigurationReference = C8DC6D7117401638391B6F90 /* Pods-Chattr.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = Chattr/Chattr.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = ZVP6SVPX5H;
 				INFOPLIST_FILE = Chattr/Info.plist;

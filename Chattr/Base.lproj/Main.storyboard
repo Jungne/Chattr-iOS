@@ -10,25 +10,40 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Login View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Chattr" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="LoginViewController" id="BYZ-38-t0r" customClass="LoginViewController" customModule="Chattr" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fHR-Ib-5fo">
+                                <rect key="frame" x="188" y="433" width="38" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Login"/>
+                                <connections>
+                                    <action selector="onClick:" destination="BYZ-38-t0r" eventType="touchUpInside" id="QS8-HX-Kje"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <toolbarItems/>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <segue destination="tHd-9K-S9F" kind="presentation" identifier="loggedInSegue" id="dDz-7m-L4d"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-686" y="-565"/>
+            <point key="canvasLocation" x="-971" y="-525"/>
         </scene>
         <!--Chat rooms-->
         <scene sceneID="aFl-rG-QoV">
             <objects>
-                <tableViewController id="7or-0d-Ycc" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="ChatRoomsViewController" id="7or-0d-Ycc" customClass="ChatRoomsTableViewController" customModule="Chattr" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="xd0-gg-2ts">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -64,7 +79,18 @@
                             <outlet property="delegate" destination="7or-0d-Ycc" id="rp7-AZ-gfv"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Chat rooms" id="j7j-B6-qmz"/>
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" title="Chat rooms" id="j7j-B6-qmz">
+                        <barButtonItem key="rightBarButtonItem" title="Sign out" id="bAd-2Q-LKZ">
+                            <connections>
+                                <action selector="onClick:" destination="7or-0d-Ycc" id="XKN-2z-52R"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="presentation" identifier="loggedOutSegue" id="GxT-Ke-OSc"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0GX-xs-fpx" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

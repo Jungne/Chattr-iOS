@@ -8,6 +8,7 @@
 
 import UIKit
 import Firebase
+import FirebaseUI
 import FacebookCore
 
 @UIApplicationMain
@@ -18,8 +19,22 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
-        FirebaseApp.configure() //Firebase initialization
-        ApplicationDelegate.shared.application(application, didFinishLaunchingWithOptions: launchOptions) //Facebook SDK initialization
+        //Firebase initialization
+        FirebaseApp.configure()
+        
+        //Facebook SDK initialization
+        ApplicationDelegate.shared.application(application, didFinishLaunchingWithOptions: launchOptions)
+        
+        //FirebaseUI
+        let authUI = FUIAuth.defaultAuthUI()
+        authUI!.delegate = self
+        
+        //If not signed in the user is sent to the login screen.
+        if Auth.auth().currentUser == nil {
+            let loginViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "LoginViewController")
+            self.window?.rootViewController = loginViewController
+        }
+        
         return true
     }
 
@@ -44,10 +59,21 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func applicationWillTerminate(_ application: UIApplication) {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
-    //Facebook SDK 
+    
+    //Facebook handler
     func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any] = [:]) -> Bool {
+        let sourceApplication = options[UIApplication.OpenURLOptionsKey.sourceApplication] as! String?
+        if FUIAuth.defaultAuthUI()?.handleOpen(url, sourceApplication: sourceApplication) ?? false {
+            return true
+        }
         return ApplicationDelegate.shared.application(app, open: url, options: options)
     }
 
+}
+
+extension AppDelegate : FUIAuthDelegate {
+    func authUI(_ authUI: FUIAuth, didSignInWith authDataResult: AuthDataResult?, error: Error?) {
+        
+    }
 }
 
