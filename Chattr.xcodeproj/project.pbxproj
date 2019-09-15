@@ -15,6 +15,9 @@
 		64582C23232BD0C000F6E4FE /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 64582C22232BD0C000F6E4FE /* GoogleService-Info.plist */; };
 		64582C28232BE1D600F6E4FE /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64582C27232BE1D600F6E4FE /* LoginViewController.swift */; };
 		64582C2A232EA1E800F6E4FE /* ChatRoomsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64582C29232EA1E800F6E4FE /* ChatRoomsTableViewController.swift */; };
+		64582C2D232EE1A000F6E4FE /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64582C2C232EE1A000F6E4FE /* Message.swift */; };
+		64582C2F232EE21500F6E4FE /* MessageSender.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64582C2E232EE21500F6E4FE /* MessageSender.swift */; };
+		64582C32232EE31400F6E4FE /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64582C31232EE31400F6E4FE /* ChatViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -29,6 +32,9 @@
 		64582C24232BDF4F00F6E4FE /* Chattr.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Chattr.entitlements; sourceTree = "<group>"; };
 		64582C27232BE1D600F6E4FE /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		64582C29232EA1E800F6E4FE /* ChatRoomsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatRoomsTableViewController.swift; sourceTree = "<group>"; };
+		64582C2C232EE1A000F6E4FE /* Message.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
+		64582C2E232EE21500F6E4FE /* MessageSender.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageSender.swift; sourceTree = "<group>"; };
+		64582C31232EE31400F6E4FE /* ChatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewController.swift; sourceTree = "<group>"; };
 		B4513ABBB37426B718D88AD8 /* Pods-Chattr.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Chattr.debug.xcconfig"; path = "Target Support Files/Pods-Chattr/Pods-Chattr.debug.xcconfig"; sourceTree = "<group>"; };
 		C8DC6D7117401638391B6F90 /* Pods-Chattr.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Chattr.release.xcconfig"; path = "Target Support Files/Pods-Chattr/Pods-Chattr.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -66,6 +72,8 @@
 		64582C0F232BCAF200F6E4FE /* Chattr */ = {
 			isa = PBXGroup;
 			children = (
+				64582C30232EE22B00F6E4FE /* View Controllers */,
+				64582C2B232EE18600F6E4FE /* Models */,
 				64582C24232BDF4F00F6E4FE /* Chattr.entitlements */,
 				64582C10232BCAF200F6E4FE /* AppDelegate.swift */,
 				64582C14232BCAF200F6E4FE /* Main.storyboard */,
@@ -73,10 +81,27 @@
 				64582C19232BCAF400F6E4FE /* LaunchScreen.storyboard */,
 				64582C1C232BCAF400F6E4FE /* Info.plist */,
 				64582C22232BD0C000F6E4FE /* GoogleService-Info.plist */,
-				64582C27232BE1D600F6E4FE /* LoginViewController.swift */,
-				64582C29232EA1E800F6E4FE /* ChatRoomsTableViewController.swift */,
 			);
 			path = Chattr;
+			sourceTree = "<group>";
+		};
+		64582C2B232EE18600F6E4FE /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				64582C2C232EE1A000F6E4FE /* Message.swift */,
+				64582C2E232EE21500F6E4FE /* MessageSender.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		64582C30232EE22B00F6E4FE /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				64582C27232BE1D600F6E4FE /* LoginViewController.swift */,
+				64582C29232EA1E800F6E4FE /* ChatRoomsTableViewController.swift */,
+				64582C31232EE31400F6E4FE /* ChatViewController.swift */,
+			);
+			path = "View Controllers";
 			sourceTree = "<group>";
 		};
 		99D6E4920C8D6AA8B4819269 /* Frameworks */ = {
@@ -237,6 +262,9 @@
 			files = (
 				64582C2A232EA1E800F6E4FE /* ChatRoomsTableViewController.swift in Sources */,
 				64582C28232BE1D600F6E4FE /* LoginViewController.swift in Sources */,
+				64582C2F232EE21500F6E4FE /* MessageSender.swift in Sources */,
+				64582C2D232EE1A000F6E4FE /* Message.swift in Sources */,
+				64582C32232EE31400F6E4FE /* ChatViewController.swift in Sources */,
 				64582C11232BCAF200F6E4FE /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
