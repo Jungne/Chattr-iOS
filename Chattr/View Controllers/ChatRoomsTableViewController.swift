@@ -32,7 +32,7 @@ class ChatRoomsTableViewController: UITableViewController {
                     //TODO Add last message and timestamp.
                     let roomId = document.documentID
                     let roomName = document.data()["roomName"] as! String
-                    let lastMessage = "hello?"
+                    let lastMessage = "Last message"
                     let lastMessageTime = NSDate().timeIntervalSince1970
                     let newChatRoom = ChatRoom(roomId: roomId, roomName: roomName, lastMessage: lastMessage, lastMessageTime: lastMessageTime)
                     self.chatRoomsArray.append(newChatRoom)
