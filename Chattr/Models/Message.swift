@@ -29,3 +29,13 @@ struct Message: MessageType {
         self.init(kind: .text(text), user: user, messageId: messageId, date: date)
     }
 }
+
+extension Message: Comparable {
+    static func == (lhs: Message, rhs: Message) -> Bool {
+        return lhs.messageId == rhs.messageId
+    }
+    
+    static func < (lhs: Message, rhs: Message) -> Bool {
+        return lhs.sentDate < rhs.sentDate
+    }
+}

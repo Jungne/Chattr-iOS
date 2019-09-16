@@ -13,7 +13,7 @@ import InputBarAccessoryView
 
 class ChatViewController: MessagesViewController {
     var roomId: String?
-    var messages: [MessageType] = []
+    var messages: [Message] = []
     let sender: MessageSender = UserData.messageSender
     var messageListener: ListenerRegistration?
     
@@ -66,6 +66,7 @@ class ChatViewController: MessagesViewController {
     
     func insertNewMessage(message: Message) {
         messages.append(message)
+        messages.sort()
         
         messagesCollectionView.reloadData()
     }
