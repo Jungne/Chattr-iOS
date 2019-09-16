@@ -11,7 +11,7 @@ import FirebaseUI
 
 class LoginViewController: UIViewController {
     let authUI = FUIAuth.defaultAuthUI() //FirebaseUI
-    var handle : AuthStateDidChangeListenerHandle? //Handle for login listener.
+    var handle: AuthStateDidChangeListenerHandle? //Handle for login listener.
 
     override func viewDidLoad() {
         super.viewDidLoad()

@@ -7,3 +7,9 @@
 //
 
 import Foundation
+import MessageKit
+
+struct MessageSender: SenderType, Equatable {
+    var senderId: String
+    var displayName: String
+}

@@ -10,16 +10,10 @@ import UIKit
 import Firebase
 import FirebaseUI
 
-//ChatRoom struct to represent chat rooms in tableview.
-struct ChatRoom {
-    var roomName : String
-    var lastMessage : String
-    var lastMessageTime : Double
-}
 
 class ChatRoomsTableViewController: UITableViewController {
     //Variable declarations
-    var db : Firestore!
+    var db: Firestore!
     var chatRoomsArray = [ChatRoom]()
     
     override func viewDidLoad() {
@@ -35,7 +29,11 @@ class ChatRoomsTableViewController: UITableViewController {
             } else {
                 for document in querySnapshot!.documents {
                     //TODO Add last message and timestamp.
-                    let newChatRoom = ChatRoom(roomName: document.data()["roomName"] as! String, lastMessage: "test", lastMessageTime: NSDate().timeIntervalSince1970)
+                    let roomId = document.documentID
+                    let roomName = document.data()["roomName"] as! String
+                    let lastMessage = "hello?"
+                    let lastMessageTime = NSDate().timeIntervalSince1970
+                    let newChatRoom = ChatRoom(roomId: roomId, roomName: roomName, lastMessage: lastMessage, lastMessageTime: lastMessageTime)
                     self.chatRoomsArray.append(newChatRoom)
                 }
             }
@@ -111,7 +109,9 @@ class ChatRoomsTableViewController: UITableViewController {
     */
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        //TODO Open the chat room.
+        //TODO specific chat room.
+        //Opens the chat room.
+        navigationController?.pushViewController(ChatViewController(), animated: true)
     }
 
     @IBAction func onClick(_ sender: UIBarButtonItem) {

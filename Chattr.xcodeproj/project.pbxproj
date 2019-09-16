@@ -18,6 +18,8 @@
 		64582C2D232EE1A000F6E4FE /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64582C2C232EE1A000F6E4FE /* Message.swift */; };
 		64582C2F232EE21500F6E4FE /* MessageSender.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64582C2E232EE21500F6E4FE /* MessageSender.swift */; };
 		64582C32232EE31400F6E4FE /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64582C31232EE31400F6E4FE /* ChatViewController.swift */; };
+		64582C34232F8E7A00F6E4FE /* UserData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64582C33232F8E7A00F6E4FE /* UserData.swift */; };
+		64582C36232F979000F6E4FE /* ChatRoom.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64582C35232F979000F6E4FE /* ChatRoom.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -35,6 +37,8 @@
 		64582C2C232EE1A000F6E4FE /* Message.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
 		64582C2E232EE21500F6E4FE /* MessageSender.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageSender.swift; sourceTree = "<group>"; };
 		64582C31232EE31400F6E4FE /* ChatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewController.swift; sourceTree = "<group>"; };
+		64582C33232F8E7A00F6E4FE /* UserData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserData.swift; sourceTree = "<group>"; };
+		64582C35232F979000F6E4FE /* ChatRoom.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatRoom.swift; sourceTree = "<group>"; };
 		B4513ABBB37426B718D88AD8 /* Pods-Chattr.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Chattr.debug.xcconfig"; path = "Target Support Files/Pods-Chattr/Pods-Chattr.debug.xcconfig"; sourceTree = "<group>"; };
 		C8DC6D7117401638391B6F90 /* Pods-Chattr.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Chattr.release.xcconfig"; path = "Target Support Files/Pods-Chattr/Pods-Chattr.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -81,6 +85,7 @@
 				64582C19232BCAF400F6E4FE /* LaunchScreen.storyboard */,
 				64582C1C232BCAF400F6E4FE /* Info.plist */,
 				64582C22232BD0C000F6E4FE /* GoogleService-Info.plist */,
+				64582C33232F8E7A00F6E4FE /* UserData.swift */,
 			);
 			path = Chattr;
 			sourceTree = "<group>";
@@ -90,6 +95,7 @@
 			children = (
 				64582C2C232EE1A000F6E4FE /* Message.swift */,
 				64582C2E232EE21500F6E4FE /* MessageSender.swift */,
+				64582C35232F979000F6E4FE /* ChatRoom.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -264,7 +270,9 @@
 				64582C28232BE1D600F6E4FE /* LoginViewController.swift in Sources */,
 				64582C2F232EE21500F6E4FE /* MessageSender.swift in Sources */,
 				64582C2D232EE1A000F6E4FE /* Message.swift in Sources */,
+				64582C34232F8E7A00F6E4FE /* UserData.swift in Sources */,
 				64582C32232EE31400F6E4FE /* ChatViewController.swift in Sources */,
+				64582C36232F979000F6E4FE /* ChatRoom.swift in Sources */,
 				64582C11232BCAF200F6E4FE /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
