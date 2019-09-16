@@ -21,7 +21,7 @@ class ChatRoomsTableViewController: UITableViewController {
         super.viewDidLoad()
 
         //Firestore reference.
-        db = Firestore.firestore()
+        db = DatabaseManager.db.fsdb
         
         //Retrieves the chat rooms from database and saves them to an array for showing in tableview.
         db.collection("chatrooms").getDocuments() { (querySnapshot, err) in

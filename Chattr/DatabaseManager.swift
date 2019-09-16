@@ -28,7 +28,6 @@ class DatabaseManager {
     }
     
     func saveMessage(roomId: String, sender: MessageSender, message: String) {
-        print("saving message: " + message)
         let ref = fsdb.collection("chatrooms").document(roomId).collection("messages")
         ref.addDocument(data: [
             "senderId": sender.senderId,
