@@ -7,11 +7,15 @@
 //
 
 import UIKit
+import Firebase
 import MessageKit
+import InputBarAccessoryView
 
 class ChatViewController: MessagesViewController {
-    
-    let messages: [MessageType] = []
+    var roomId: String?
+    var messages: [MessageType] = []
+    let sender: MessageSender = UserData.messageSender
+    var messageListener: ListenerRegistration?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -19,24 +23,57 @@ class ChatViewController: MessagesViewController {
         messagesCollectionView.messagesDataSource = self
         messagesCollectionView.messagesLayoutDelegate = self
         messagesCollectionView.messagesDisplayDelegate = self
+        messageInputBar.delegate = self
+        
+        listenForMessages(roomId: self.roomId!)
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    func saveMessage(message: String) {
+        DatabaseManager.db.saveMessage(roomId: roomId!, sender: sender, message: message)
     }
-    */
-
+    
+    //Attaches message listener.
+    func listenForMessages(roomId: String) {
+        messageListener = DatabaseManager.db.fsdb.collection("chatrooms").document(roomId).collection("messages")
+            .addSnapshotListener { querySnapshot, error in
+                guard let snapshot = querySnapshot else {
+                    print("Error fetching documents: \(error!)")
+                    return
+                }
+                
+                snapshot.documentChanges.forEach() { diff in
+                    if (diff.type == .added) {
+                        self.handleDocumentChange(newMessage: diff)
+                    }
+                    
+                }
+        }
+    }
+    
+    private func handleDocumentChange(newMessage: DocumentChange) {
+        let document = newMessage.document
+        let data = document.data()
+        let text = data["message"]
+        let sender = MessageSender(senderId: data["senderId"] as! String, displayName: data["senderName"] as! String)
+        let messageId = document.documentID
+        let timestamp = data["timestamp"] as! Timestamp
+        let date = timestamp.dateValue()
+        guard var message = Message(text: text as! String, user: sender, messageId: messageId, date: date as! Date) else {
+            return
+        }
+        insertNewMessage(message: message)
+    }
+    
+    func insertNewMessage(message: Message) {
+        messages.append(message)
+        
+        messagesCollectionView.reloadData()
+    }
 }
 
 extension ChatViewController : MessagesDataSource {
     func currentSender() -> SenderType {
-        return UserData.messageSender
+        return sender
     }
     
     func numberOfSections(in messagesCollectionView: MessagesCollectionView) -> Int {
@@ -48,4 +85,13 @@ extension ChatViewController : MessagesDataSource {
     }
 }
 
-extension ChatViewController : MessagesLayoutDelegate, MessagesDisplayDelegate {}
+extension ChatViewController: InputBarAccessoryViewDelegate {
+    func inputBar(_ inputBar: InputBarAccessoryView, didPressSendButtonWith text: String) {
+        let message = inputBar.inputTextView.components[0] as! String
+        saveMessage(message: message)
+        messageInputBar.inputTextView.text = ""
+        //messageInputBar.sendButton.startAnimating()
+    }
+}
+
+extension ChatViewController: MessagesLayoutDelegate, MessagesDisplayDelegate {}

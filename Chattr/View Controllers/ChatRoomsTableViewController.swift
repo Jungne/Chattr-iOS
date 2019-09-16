@@ -15,6 +15,7 @@ class ChatRoomsTableViewController: UITableViewController {
     //Variable declarations
     var db: Firestore!
     var chatRoomsArray = [ChatRoom]()
+    var roomId: String?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -97,21 +98,13 @@ class ChatRoomsTableViewController: UITableViewController {
         return true
     }
     */
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        //TODO specific chat room.
-        //Opens the chat room.
-        navigationController?.pushViewController(ChatViewController(), animated: true)
+        //Opens the chat room and passes the room id along.
+        let roomId = chatRoomsArray[indexPath.row].roomId
+        let vc = ChatViewController()
+        vc.roomId = roomId
+        navigationController?.pushViewController(vc, animated: true)
     }
 
     @IBAction func onClick(_ sender: UIBarButtonItem) {

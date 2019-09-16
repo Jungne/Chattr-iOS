@@ -25,7 +25,7 @@ struct Message: MessageType {
         self.sentDate = date
     }
     
-    init(text: String, user: MessageSender, messageId: String, date: Date) {
+    init?(text: String, user: MessageSender, messageId: String, date: Date) {
         self.init(kind: .text(text), user: user, messageId: messageId, date: date)
     }
 }
